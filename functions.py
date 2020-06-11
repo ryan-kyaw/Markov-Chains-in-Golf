@@ -58,6 +58,9 @@ def path_steps(probmatrix, startstate, finishstate):
         path_state = np.append(path_state, current)
     return path_state 
 
+# Simulating the random walks as many times as you want and printing
+# out the mean strokes after a certain amount of time 
+
 def stats_state(probmatrix, startstate, finishstate, trials):
     length = []
     for i in range(0, trials):
