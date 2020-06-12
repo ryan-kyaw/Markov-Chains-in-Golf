@@ -68,7 +68,18 @@ def stats_state(probmatrix, startstate, finishstate, trials):
         length.append(len(path) - 1)
     mean_strokes = stat.mean(length)
     return mean_strokes
-        
+
+# Writing a fcn that will create a csv file to transport to RStudio for analysis
+
+def create_csv(probmatrix, startstate, finishstate, trials):
+    means = []
+    for i in range(0, trials):
+        path = path_state(probmatrix, startstate, finishstate)
+        strokes = len(path) - 1
+        means.append(strokes)
+    stroke_list = pd.DataFrame(data = means, columns = ["strokes"])
+    stroke_list.to_csv("StrokeList.csv")
+    return means
     
     
     
